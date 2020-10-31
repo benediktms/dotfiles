@@ -94,17 +94,23 @@ endfunction
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+Plug 'pantharshit00/vim-prisma'
 " ------------------------------------------------
 
 " IDE like linting and diagnostics
 Plug 'dense-analysis/ale'
 let b:ale_fixers = {'javascript': ['prettier', 'eslint'], 'ruby': ['prettier']}
+let g:ale_fix_on_save = 1
 
 Plug 'prettier/vim-prettier'
 nnoremap <leader>pp :PrettierAsync<CR>
 
 " Git gutter information
 Plug 'airblade/vim-gitgutter'
+
+" Color scheme
+Plug 'morhetz/gruvbox'
 
 " Lightline
 Plug 'itchyny/lightline.vim'
@@ -117,3 +123,10 @@ nnoremap <C-p> :Files <CR>
 
 call plug#end()
 " -----------------------------------------------
+
+" color scheme
+let g:gruvbox_italic=1
+colorscheme gruvbox
+
+let g:lightline = {}
+let g:lightline.colorscheme = 'gruvbox'
