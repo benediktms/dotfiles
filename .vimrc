@@ -47,13 +47,35 @@ call plug#begin()
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 
+Plug 'preservim/nerdcommenter'
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+" Enable NERDCommenterToggle to check all selected lines is commented or not
+let g:NERDToggleCheckAllLines = 1
+
 " File tree with NERDTree
 Plug 'preservim/nerdtree'
-" start NERDTree if vim was opened in a directory (no file was opened)
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+Plug 'Xuyuanp/nerdtree-git-plugin'
 " Open NERDTree
 nnoremap <leader>ft :NERDTreeToggle<CR>
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
 
 " IDE like intellisense with CoC -----------------
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -108,13 +130,26 @@ nnoremap <leader>pp :PrettierAsync<CR>
 
 " Git gutter information
 Plug 'airblade/vim-gitgutter'
+let g:gitgutter_sign_added = '✚'
+let g:gitgutter_sign_modified = '✹'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_removed_first_line = '-'
+let g:gitgutter_sign_modified_removed = '-'
 
 " Color scheme
 Plug 'morhetz/gruvbox'
 
 " Lightline
-Plug 'itchyny/lightline.vim'
-set laststatus=2
+" Plug 'itchyny/lightline.vim'
+" set laststatus=2
+
+" Airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+let g:airline_powerline_fonts = 1
+
+" Git awesomeness
+Plug 'tpope/vim-fugitive'
 
 " fzf search
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -127,6 +162,3 @@ call plug#end()
 " color scheme
 let g:gruvbox_italic=1
 colorscheme gruvbox
-
-let g:lightline = {}
-let g:lightline.colorscheme = 'gruvbox'
