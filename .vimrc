@@ -11,6 +11,9 @@ syntax on
 :	autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
 :augroup END
 
+" set cursor line
+set cursorline
+
 " This might cause some isses if it isn't set (apparently)
 set hidden
 
@@ -94,7 +97,14 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " ------------------------------------------------
 
 " IDE like linting and diagnostics
-" Plug 'dense-analysis/ale'
+Plug 'dense-analysis/ale'
+let b:ale_fixers = {'javascript': ['prettier', 'eslint'], 'ruby': ['prettier']}
+
+Plug 'prettier/vim-prettier'
+nnoremap <leader>pp :PrettierAsync<CR>
+
+" Git gutter information
+Plug 'airblade/vim-gitgutter'
 
 " Lightline
 Plug 'itchyny/lightline.vim'
