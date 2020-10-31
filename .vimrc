@@ -1,3 +1,5 @@
+" This is the Vim configuration file of Benedikt Schnatterbeck
+
 " Switch on syntax
 syntax on
 
