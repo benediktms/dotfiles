@@ -64,18 +64,18 @@ Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 " Open NERDTree
 nnoremap <leader>ft :NERDTreeToggle<CR>
-let g:NERDTreeGitStatusIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ 'Ignored'   : '☒',
-    \ "Unknown"   : "?"
-    \ }
+" let g:NERDTreeGitStatusIndicatorMapCustom = {
+"     \ "Modified"  : "✹",
+"     \ "Staged"    : "✚",
+"     \ "Untracked" : "✭",
+"     \ "Renamed"   : "➜",
+"     \ "Unmerged"  : "═",
+"     \ "Deleted"   : "",
+"     \ "Dirty"     : "✗",
+"     \ "Clean"     : "✔︎",
+"     \ 'Ignored'   : '☒',
+"     \ "Unknown"   : "?"
+"     \ }
 
 " IDE like intellisense with Coc -----------------
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -143,11 +143,11 @@ nnoremap <leader>pp :PrettierAsync<CR>
 
 " Git gutter information
 Plug 'airblade/vim-gitgutter'
-let g:gitgutter_sign_added = '✚'
-let g:gitgutter_sign_modified = '✹'
-let g:gitgutter_sign_removed = '-'
-let g:gitgutter_sign_removed_first_line = '-'
-let g:gitgutter_sign_modified_removed = '-'
+" let g:gitgutter_sign_added = '✚'
+" let g:gitgutter_sign_modified = '✹'
+" let g:gitgutter_sign_removed = '-'
+" let g:gitgutter_sign_removed_first_line = '-'
+" let g:gitgutter_sign_modified_removed = '-'
 
 " Color scheme
 Plug 'morhetz/gruvbox'
@@ -169,9 +169,19 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 nnoremap <C-p> :Files <CR>
 
+" Language specific ----------------------------
+" JavaScript syntac highlighting
+Plug 'pangloss/vim-javascript'
+
+" TypeScript syntac highlighting
+Plug 'leafgarland/typescript-vim'
+
+" JSX/TSX syntac highlighting
+Plug 'MaxMEllon/vim-jsx-pretty'
+
 call plug#end()
 " -----------------------------------------------
 
 " color scheme
-let g:gruvbox_italic=1
+" let g:gruvbox_italic=1
 colorscheme gruvbox
