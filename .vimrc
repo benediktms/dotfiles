@@ -20,6 +20,7 @@ set hidden
 " setting indentations
 set tabstop=2 softtabstop=2
 set shiftwidth=2
+set expandtab
 set smartindent
 
 " setting update time to be shorter
@@ -41,6 +42,9 @@ nnoremap <leader>l <C-w>l
 
 " shortcut to open a vertical split and edit the vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+
+" Let Coc handle LSP and ALE diagnostics
+let g:ale_disable_lsp = 1
 
 " Plugins ----------------------------------------
 
@@ -159,8 +163,8 @@ Plug 'dense-analysis/ale'
 let b:ale_fixers = {
 			\'javascript': ['prettier', 'eslint'],
 			\'javascriptreact': ['prettier', 'eslint'],
-			\'typescript': ['prettier'],
-			\'typescriptreact': ['prettier'],
+			\'typescript': ['prettier', 'eslint'],
+			\'typescriptreact': ['prettier', 'eslint'],
 			\'css': ['prettier'],
 			\'ruby': ['prettier']
 			\}
