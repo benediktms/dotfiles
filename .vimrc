@@ -25,6 +25,9 @@ set smartindent
 " setting update time to be shorter
 set updatetime=300
 
+" turn off word wrap cos its DISGUSTING
+set nowrap
+
 " Generic shortcuts ------------------------------
 
 " setting leader key and shortcuts
@@ -44,8 +47,25 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 call plug#begin()
 
 " general & QoL
+" surround things with things
 Plug 'tpope/vim-surround'
+" automatic bracket pairs
 Plug 'jiangmiao/auto-pairs'
+"auto rename XML like tags 
+Plug 'AndrewRadev/tagalong.vim'
+" auto close XML like tags
+Plug 'alvan/vim-closetag'
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.tsx'
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+let g:closetag_filetypes = 'html,xhtml,phtml'
+let g:closetag_xhtml_filetypes = 'xhtml,jsx,tsx'
+let g:closetag_emptyTags_caseSensitive = 1
+let g:closetag_regions = {
+    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+    \ 'javascript.jsx': 'jsxRegion',
+    \ }
+let g:closetag_shortcut = '>'
+let g:closetag_close_shortcut = '<leader>>'
 
 Plug 'preservim/nerdcommenter'
 " Add spaces after comment delimiters by default
@@ -65,17 +85,17 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " Open NERDTree
 nnoremap <leader>ft :NERDTreeToggle<CR>
 " let g:NERDTreeGitStatusIndicatorMapCustom = {
-"     \ "Modified"  : "✹",
-"     \ "Staged"    : "✚",
-"     \ "Untracked" : "✭",
-"     \ "Renamed"   : "➜",
-"     \ "Unmerged"  : "═",
-"     \ "Deleted"   : "",
-"     \ "Dirty"     : "✗",
-"     \ "Clean"     : "✔︎",
-"     \ 'Ignored'   : '☒',
-"     \ "Unknown"   : "?"
-"     \ }
+		\ "Modified"  : "✹",
+		\ "Staged"    : "✚",
+		\ "Untracked" : "✭",
+		\ "Renamed"   : "➜",
+		\ "Unmerged"  : "═",
+		\ "Deleted"   : "",
+		\ "Dirty"     : "✗",
+		\ "Clean"     : "✔︎",
+		\ 'Ignored'   : '☒',
+		\ "Unknown"   : "?"
+		\ }
 
 " IDE like intellisense with Coc -----------------
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -130,31 +150,37 @@ endfunction
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
-Plug 'pantharshit00/vim-prisma'
+" command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
+
 " ------------------------------------------------
 
 " IDE like linting and diagnostics
 Plug 'dense-analysis/ale'
-let b:ale_fixers = {'javascript': ['prettier', 'eslint'], 'ruby': ['prettier']}
+let b:ale_fixers = {
+			\'javascript': ['prettier', 'eslint'],
+			\'javascriptreact': ['prettier', 'eslint'],
+			\'typescript': ['prettier'],
+			\'typescriptreact': ['prettier'],
+			\'css': ['prettier'],
+			\'ruby': ['prettier']
+			\}
+let g:ale_linters_explicit = 1
 let g:ale_fix_on_save = 1
 
-Plug 'prettier/vim-prettier'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 nnoremap <leader>pp :PrettierAsync<CR>
+packloadall
 
 " Git gutter information
 Plug 'airblade/vim-gitgutter'
-" let g:gitgutter_sign_added = '✚'
-" let g:gitgutter_sign_modified = '✹'
-" let g:gitgutter_sign_removed = '-'
-" let g:gitgutter_sign_removed_first_line = '-'
-" let g:gitgutter_sign_modified_removed = '-'
+let g:gitgutter_sign_added = '✚'
+let g:gitgutter_sign_modified = '✹'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_removed_first_line = '-'
+let g:gitgutter_sign_modified_removed = '-'
 
 " Color scheme
 Plug 'morhetz/gruvbox'
-
-" Lightline
-" Plug 'itchyny/lightline.vim'
-" set laststatus=2
 
 " Airline
 Plug 'vim-airline/vim-airline'
@@ -170,6 +196,10 @@ Plug 'junegunn/fzf.vim'
 nnoremap <C-p> :Files <CR>
 
 " Language specific ----------------------------
+
+" syntax support fro prisma
+Plug 'pantharshit00/vim-prisma'
+
 " JavaScript syntac highlighting
 Plug 'pangloss/vim-javascript'
 
@@ -178,6 +208,7 @@ Plug 'leafgarland/typescript-vim'
 
 " JSX/TSX syntac highlighting
 Plug 'MaxMEllon/vim-jsx-pretty'
+
 
 call plug#end()
 " -----------------------------------------------
