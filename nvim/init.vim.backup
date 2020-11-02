@@ -228,17 +228,18 @@ nnoremap <leader>lc :VimuxRunLastCommand<CR>
 
 " Language specific ----------------------------
 
-" syntax support for prisma
+" syntax support fro prisma
 Plug 'pantharshit00/vim-prisma'
 
-" TypeScript syntax highlighting
+" JavaScript syntac highlighting
+Plug 'pangloss/vim-javascript'
+
+" TypeScript syntac highlighting
 Plug 'leafgarland/typescript-vim'
 
-" JSX/TSX syntax highlighting
+" JSX/TSX syntac highlighting
 Plug 'MaxMEllon/vim-jsx-pretty'
 
-" JavaScript syntax highlighting
-" Plug 'pangloss/vim-javascript'
 
 call plug#end()
 " -----------------------------------------------
