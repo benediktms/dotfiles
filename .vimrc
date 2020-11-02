@@ -34,7 +34,12 @@ set nowrap
 " setting leader key and shortcuts
 let mapleader = " "
 
-" window navigation
+" creating splits (mirrors tmux config for max muscle memory goodness)
+nnoremap <leader>- <C-w>s
+nnoremap <leader>_ <C-w>v
+nnoremap <leader>x <C-w>c
+
+" split navigation
 nnoremap <leader>h <C-w>h
 nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
@@ -50,7 +55,7 @@ let g:ale_disable_lsp = 1
 
 call plug#begin()
 
-" general & QoL
+" general & QoL ---------------------------------
 " surround things with things
 Plug 'tpope/vim-surround'
 " automatic bracket pairs
@@ -70,6 +75,15 @@ let g:closetag_regions = {
     \ }
 let g:closetag_shortcut = '>'
 let g:closetag_close_shortcut = '<leader>>'
+
+" tmux navigator
+Plug 'christoomey/vim-tmux-navigator'
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+" nnoremap <silent> <C-TAB> :TmuxNavigatePrevious<cr>
 
 Plug 'preservim/nerdcommenter'
 " Add spaces after comment delimiters by default
@@ -124,6 +138,11 @@ if has('nvim')
 else
 	inoremap <silent><expr> <c-@> coc#refresh()
 endif
+
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin"
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
@@ -198,6 +217,11 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 nnoremap <C-p> :Files <CR>
+
+" vimux - tmux command prompt interaction from vim
+Plug 'benmills/vimux'
+nnoremap <leader>rc :VimuxPromptCommand<CR>
+nnoremap <leader>lc :VimuxRunLastCommand<CR>
 
 " Language specific ----------------------------
 
