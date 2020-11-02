@@ -24,7 +24,8 @@ set expandtab
 set smartindent
 
 " setting update time to be shorter
-set updatetime=300
+set updatetime=200
+set notimeout ttimeout ttimeoutlen=200
 
 " turn off word wrap cos its DISGUSTING
 set nowrap
@@ -64,7 +65,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'AndrewRadev/tagalong.vim'
 " auto close XML like tags
 Plug 'alvan/vim-closetag'
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.tsx'
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.tsx'
 let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
 let g:closetag_filetypes = 'html,xhtml,phtml'
 let g:closetag_xhtml_filetypes = 'xhtml,jsx,tsx'
@@ -171,7 +172,7 @@ endfunction
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 
@@ -194,14 +195,6 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 nnoremap <leader>pp :PrettierAsync<CR>
 packloadall
 
-" Git gutter information
-Plug 'airblade/vim-gitgutter'
-let g:gitgutter_sign_added = '✚'
-let g:gitgutter_sign_modified = '✹'
-let g:gitgutter_sign_removed = '-'
-let g:gitgutter_sign_removed_first_line = '-'
-let g:gitgutter_sign_modified_removed = '-'
-
 " Color scheme
 Plug 'morhetz/gruvbox'
 
@@ -212,6 +205,16 @@ let g:airline_powerline_fonts = 1
 
 " Git awesomeness
 Plug 'tpope/vim-fugitive'
+" set statusline=%F\ %m\ %{fugitive#statusline()}\ %y%=%l,%c\ %P
+" set statusline=%{fugitive#statusline()}
+
+" Git gutter information
+Plug 'airblade/vim-gitgutter'
+let g:gitgutter_sign_added = '✚'
+let g:gitgutter_sign_modified = '✹'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_removed_first_line = '-'
+let g:gitgutter_sign_modified_removed = '-'
 
 " fzf search
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
