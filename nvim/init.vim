@@ -47,7 +47,7 @@ nnoremap <leader>k <C-w>k
 nnoremap <leader>l <C-w>l
 
 " exit the nvim terminal emulator
-:tnoremap <Esc> <C-\><C-n>"
+:tnoremap <Esc> <C-\><C-n>
 
 " shortcut to open a vertical split and edit the vimrc/nvim config
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
