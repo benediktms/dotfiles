@@ -25,7 +25,7 @@ set smartindent
 
 " setting update time to be shorter
 set updatetime=200
-set notimeout ttimeout ttimeoutlen=200
+set notimeout ttimeout ttimeoutlen=50
 
 " turn off word wrap cos its DISGUSTING
 set nowrap
@@ -125,6 +125,7 @@ nnoremap <leader>ft :NERDTreeToggle<CR>
 		\ 'Ignored'   : '☒',
 		\ "Unknown"   : "?"
 		\ }
+let NERDTreeShowHidden=1
 
 " IDE like intellisense with Coc -----------------
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -210,11 +211,16 @@ Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'default'
+
+" Tmux statusline generator
+Plug 'edkolev/tmuxline.vim'
+let g:tmuxline_preset = 'powerline'
+let g:airline#extensions#tmuxline#enabled = 0
 
 " Git awesomeness
 Plug 'tpope/vim-fugitive'
-" set statusline=%F\ %m\ %{fugitive#statusline()}\ %y%=%l,%c\ %P
-" set statusline=%{fugitive#statusline()}
 
 " Git gutter information
 Plug 'airblade/vim-gitgutter'
@@ -226,15 +232,14 @@ let g:gitgutter_sign_modified_removed = '-'
 
 " fzf search
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-nnoremap <C-p> :Files <CR>
+nnoremap <C-p> :FZF <CR>
 
 " vimux - tmux command prompt interaction from vim
 Plug 'benmills/vimux'
 nnoremap <leader>rc :VimuxPromptCommand<CR>
 nnoremap <leader>lc :VimuxRunLastCommand<CR>
 
-" Tress sitter
+" Tree sitter
 Plug 'nvim-treesitter/nvim-treesitter'
 
 " Language specific ----------------------------
@@ -256,7 +261,7 @@ call plug#end()
 " -----------------------------------------------
 
 " color scheme
-" let g:gruvbox_italic=1
+let g:gruvbox_italic=1
 colorscheme gruvbox
 
 lua <<EOF
