@@ -16,6 +16,7 @@ set cursorline
 
 " This might cause some isses if it isn't set (apparently)
 set hidden
+set nocompatible
 
 " setting indentations
 set tabstop=2 softtabstop=2
@@ -64,18 +65,22 @@ Plug 'jiangmiao/auto-pairs'
 "auto rename XML like tags 
 Plug 'AndrewRadev/tagalong.vim'
 " auto close XML like tags
-Plug 'alvan/vim-closetag'
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.tsx'
-let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
-let g:closetag_filetypes = 'html,xhtml,phtml'
-let g:closetag_xhtml_filetypes = 'xhtml,jsx,tsx'
-let g:closetag_emptyTags_caseSensitive = 1
-let g:closetag_regions = {
-    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
-    \ 'javascript.jsx': 'jsxRegion',
-    \ }
-let g:closetag_shortcut = '>'
+" Plug 'alvan/vim-closetag'
+" let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.tsx'
+" let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+" let g:closetag_filetypes = 'html,xhtml,phtml'
+" let g:closetag_xhtml_filetypes = 'xhtml,jsx,tsx'
+" let g:closetag_emptyTags_caseSensitive = 1
+" let g:closetag_regions = {
+"     \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+"     \ 'javascript.jsx': 'jsxRegion',
+"     \ }
+" let g:closetag_shortcut = '>'
 " let g:closetag_close_shortcut = '<leader>>'
+
+" auto insert end at the end of appropriat code blocks in Ruby and other
+" languages
+Plug 'tpope/vim-endwise'
 
 " tmux navigator
 Plug 'christoomey/vim-tmux-navigator'
@@ -119,6 +124,9 @@ nnoremap <leader>ft :NERDTreeToggle<CR>
 " IDE like intellisense with Coc -----------------
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=cpumvisible() ? coc#_select_confirm() : "\
+
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
@@ -137,13 +145,13 @@ endfunction
 if has('nvim')
   inoremap <silent><expr> <c-space> coc#refresh()
 else
-	inoremap <silent><expr> <c-@> coc#refresh()
+  inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
 " Make <CR> auto-select the first completion item and notify coc.nvim to
-" format on enter, <cr> could be remapped by other vim plugin"
+" format on enter, <cr> could be remapped by other vim plugin
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+                             \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
@@ -171,6 +179,7 @@ endfunction
 
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
+"
 " provide custom statusline: lightline.vim, vim-airline.
 " set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
@@ -231,14 +240,22 @@ nnoremap <leader>lc :VimuxRunLastCommand<CR>
 " syntax support for prisma
 Plug 'pantharshit00/vim-prisma'
 
+" JavaScript syntax highlighting
+Plug 'pangloss/vim-javascript'
+
 " TypeScript syntax highlighting
 Plug 'leafgarland/typescript-vim'
 
 " JSX/TSX syntax highlighting
 Plug 'MaxMEllon/vim-jsx-pretty'
 
-" JavaScript syntax highlighting
-" Plug 'pangloss/vim-javascript'
+" Plug 'sheerun/vim-polyglot'
+
+" NeoVim Plugins --------------------------------
+
+if has('nvim')
+
+endif
 
 call plug#end()
 " -----------------------------------------------
