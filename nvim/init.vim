@@ -35,6 +35,10 @@ set nowrap
 " setting leader key and shortcuts
 let mapleader = " "
 
+" setting up better buffer navigation
+nnoremap <Leader>bp :bp<CR>
+nnoremap <Leader>bn :bn<CR>
+
 " creating splits (mirrors tmux config for max muscle memory goodness)
 nnoremap <leader>- <C-w>s
 nnoremap <leader>_ <C-w>v
