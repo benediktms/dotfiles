@@ -101,11 +101,16 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export FZF_BASE=/home/benedikt/AUR/fzf-git/fzf
-export FZF_DEFAULT_COMMAND='find .'
+# Actually load Oh-My-Zsh
+source "${ZSH}/oh-my-zsh.sh"
 
 # Node Version Manager
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 eval "$(rbenv init -)"
+
+# export FZF_BASE=/home/benedikt/AUR/fzf-git/fzf
+# export FZF_DEFAULT_COMMAND='find .'
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='find .'

@@ -236,7 +236,11 @@ let g:gitgutter_sign_modified_removed = '-'
 
 " fzf search
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-nnoremap <C-p> :FZF <CR>
+nnoremap <C-p> :FZF<CR>
+
+" ctrp-p fuzzy search
+" Plug 'ctrlpvim/ctrlp.vim'
+" let g:ctrlp_user_command = 'find %s - type f'
 
 " vimux - tmux command prompt interaction from vim
 Plug 'benmills/vimux'
