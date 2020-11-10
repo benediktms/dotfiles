@@ -36,8 +36,8 @@ set nowrap
 let mapleader = " "
 
 " setting up better buffer navigation
-nnoremap <Leader>bp :bp<CR>
-nnoremap <Leader>bn :bn<CR>
+nnoremap <leader>bb :bp<CR>
+nnoremap <leader>bn :bn<CR>
 
 " creating splits (mirrors tmux config for max muscle memory goodness)
 nnoremap <leader>- <C-w>s
@@ -238,10 +238,6 @@ let g:gitgutter_sign_modified_removed = '-'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 nnoremap <C-p> :FZF<CR>
 
-" ctrp-p fuzzy search
-" Plug 'ctrlpvim/ctrlp.vim'
-" let g:ctrlp_user_command = 'find %s - type f'
-
 " vimux - tmux command prompt interaction from vim
 Plug 'benmills/vimux'
 nnoremap <leader>rc :VimuxPromptCommand<CR>
@@ -252,16 +248,16 @@ Plug 'nvim-treesitter/nvim-treesitter'
 
 " Language specific ----------------------------
 
-" syntax support fro prisma
+" syntax support for prisma
 Plug 'pantharshit00/vim-prisma'
 
-" JavaScript syntac highlighting
+" JavaScript syntax highlighting
 " Plug 'pangloss/vim-javascript'
 
-" TypeScript syntac highlighting
+" TypeScript syntax highlighting
 " Plug 'leafgarland/typescript-vim'
 
-" JSX/TSX syntac highlighting
+" JSX/TSX syntax highlighting
 " Plug 'MaxMEllon/vim-jsx-pretty'
 
 
