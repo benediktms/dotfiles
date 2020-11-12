@@ -125,7 +125,7 @@ nnoremap <leader>ft :NERDTreeToggle<CR>
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Don't pass messages to |ins-completion-menu|.
-set shortmess+=cpumvisible() ? coc#_select_confirm() : "\
+set shortmess+=c
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -250,12 +250,6 @@ Plug 'leafgarland/typescript-vim'
 Plug 'MaxMEllon/vim-jsx-pretty'
 
 " Plug 'sheerun/vim-polyglot'
-
-" NeoVim Plugins --------------------------------
-
-if has('nvim')
-
-endif
 
 call plug#end()
 " -----------------------------------------------
