@@ -57,7 +57,7 @@ nnoremap <leader>l <C-w>l
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
 " Let Coc handle LSP and ALE diagnostics
-" let ale_disable_lsp = 1
+let ale_disable_lsp = 1
 
 " Plugins ----------------------------------------
 
@@ -135,57 +135,57 @@ nnoremap <leader>ft :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 
 " IDE like intellisense with Coc -----------------
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" " Use tab for trigger completion with characters ahead and navigate.
-" " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" " other plugin before putting this into your config.
-" inoremap <silent><expr> <TAB>
-"       \ pumvisible() ? "\<C-n>" :
-"       \ <SID>check_back_space() ? "\<TAB>" :
-"       \ coc#refresh()
-" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-" function! s:check_back_space() abort
-"   let col = col('.') - 1
-"   return !col || getline('.')[col - 1]  =~# '\s'
-" endfunction
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
-" " Use <c-space> to trigger completion.
-" if has('nvim')
-"   inoremap <silent><expr> <c-space> coc#refresh()
-" else
-"   inoremap <silent><expr> <c-@> coc#refresh()
-" endif
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
 
-" " Make <CR> auto-select the first completion item and notify coc.nvim to
-" " format on enter, <cr> could be remapped by other vim plugin"
-" inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-"                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin"
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-" " GoTo code navigation.
-" nmap <silent> gd <Plug>(coc-definition)
-" nmap <silent> gy <Plug>(coc-type-definition)
-" nmap <silent> gi <Plug>(coc-implementation)
-" nmap <silent> gr <Plug>(coc-references)
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
-" " Use `[g` and `]g` to navigate diagnostics
-" " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-" nmap <silent> [g <Plug>(coc-diagnostic-prev)
-" nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
-" " Use K to show documentation in preview window.
-" nnoremap <silent> K :call <SID>show_documentation()<CR>
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-" function! s:show_documentation()
-"   if (index(['vim','help'], &filetype) >= 0)
-"     execute 'h '.expand('<cword>')
-"   elseif (coc#rpc#ready())
-"     call CocActionAsync('doHover')
-"   else
-"     execute '!' . &keywordprg . " " . expand('<cword>')
-"   endif
-" endfunction
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
 
 " " Add (Neo)Vim's native statusline support.
 " " NOTE: Please see `:h coc-status` for integrations with external plugins that
@@ -195,17 +195,17 @@ let NERDTreeShowHidden=1
 " ------------------------------------------------
 
 " IDE like linting and diagnostics
-" Plug 'dense-analysis/ale'
-" let b:ale_fixers = {
-"       \'javascript': ['prettier', 'eslint'],
-"       \'javascriptreact': ['prettier', 'eslint'],
-"       \'typescript': ['prettier', 'eslint'],
-"       \'typescriptreact': ['prettier', 'eslint'],
-"       \'css': ['prettier'],
-"       \'ruby': ['prettier']
-"       \}
-" let g:ale_linters_explicit = 1
-" let g:ale_fix_on_save = 1
+Plug 'dense-analysis/ale'
+let b:ale_fixers = {
+      \'javascript': ['prettier', 'eslint'],
+      \'javascriptreact': ['prettier', 'eslint'],
+      \'typescript': ['prettier', 'eslint'],
+      \'typescriptreact': ['prettier', 'eslint'],
+      \'css': ['prettier'],
+      \'ruby': ['prettier']
+      \}
+let g:ale_linters_explicit = 1
+let g:ale_fix_on_save = 1
 
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 nnoremap <leader>pp :PrettierAsync<CR>
@@ -264,9 +264,9 @@ Plug 'pantharshit00/vim-prisma'
 " Plug 'MaxMEllon/vim-jsx-pretty'
 
 " Nvim LSP
-Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
-Plug 'nvim-lua/diagnostic-nvim'
+" Plug 'neovim/nvim-lspconfig'
+" Plug 'nvim-lua/completion-nvim'
+" Plug 'nvim-lua/diagnostic-nvim'
 
 call plug#end()
 " -----------------------------------------------
@@ -296,49 +296,49 @@ require'nvim-treesitter.configs'.setup {
 EOF
 
 " language server setup with completion and diagnostics
-lua <<EOF
+" lua <<EOF
 
-local nvim_lsp = require( 'nvim_lsp' )
+" local nvim_lsp = require( 'nvim_lsp' )
 
-local on_attach = function(_, bufnr)
-    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-    require'diagnostic'.on_attach()
-    require'completion'.on_attach()
+" local on_attach = function(_, bufnr)
+"     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+"     require'diagnostic'.on_attach()
+"     require'completion'.on_attach()
 
-    -- Mappings.
-    local opts = { noremap=true, silent=true }
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-    -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>kd', '<cmd>lua vim.lsp.util.show_line_diagnostics()<CR>', opts)
-  end
+"     -- Mappings.
+"     local opts = { noremap=true, silent=true }
+"     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+"     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+"     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+"     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+"     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+"     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+"     -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+"     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+"     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>kd', '<cmd>lua vim.lsp.util.show_line_diagnostics()<CR>', opts)
+"   end
 
-local servers = {'tsserver', 'solargraph', 'html', 'cssls', 'diagnosticls', 'jsonls', 'vimls'}
-  for _, lsp in ipairs(servers) do
-    nvim_lsp[lsp].setup {
-      on_attach = on_attach,
-    }
-  end
-EOF
+" local servers = {'tsserver', 'solargraph', 'html', 'cssls', 'diagnosticls', 'jsonls', 'vimls'}
+"   for _, lsp in ipairs(servers) do
+"     nvim_lsp[lsp].setup {
+"       on_attach = on_attach,
+"     }
+"   end
+" EOF
 
-" Use <Tab> and <S-Tab> to navigate through popup menu
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" " Use <Tab> and <S-Tab> to navigate through popup menu
+" inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-" Set completeopt to have a better completion experience
-set completeopt=menuone,noinsert,noselect
-let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+" " Set completeopt to have a better completion experience
+" set completeopt=menuone,noinsert,noselect
+" let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
-"map to manually trigger completion
-imap <silent> <c-c> <Plug>(completion_trigger)
+" "map to manually trigger completion
+" imap <silent> <c-c> <Plug>(completion_trigger)
 
-" let g:diagnostic_enable_virtual_text = 1
-let g:diagnostic_virtual_text_prefix = ''
-nnoremap <silent>[g :PrevDiagnosticCycle<CR>
-nnoremap <silent>]g :NextDiagnosticCycle<CR>
+" " let g:diagnostic_enable_virtual_text = 1
+" let g:diagnostic_virtual_text_prefix = ''
+" nnoremap <silent>[g :PrevDiagnosticCycle<CR>
+" nnoremap <silent>]g :NextDiagnosticCycle<CR>
 
