@@ -114,3 +114,8 @@ eval "$(rbenv init -)"
 # export FZF_DEFAULT_COMMAND='find .'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='find .'
+
+# setting up xrandr to automatically split window with i3 this will have to 
+# be adjusted depending on the machine that is running. To see which port your 
+# display is connected to simply run xrandr
+xrandr --output HDMI1 --auto --right-of eDP1
