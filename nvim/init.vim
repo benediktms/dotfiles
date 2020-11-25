@@ -38,6 +38,9 @@ let mapleader = " "
 " setting up better buffer navigation
 nnoremap <a-k> :bp<CR>
 nnoremap <a-j> :bn<CR>
+nnoremap <c-w> :bd<CR>
+nnoremap <S-c-w> :q<CR>
+nnoremap <c-s> :w<CR>
 
 " creating splits (mirrors tmux config for max muscle memory goodness)
 nnoremap <leader>- <C-w>s
@@ -114,6 +117,7 @@ let g:NERDDefaultAlign = 'left'
 let g:NERDTrimTrailingWhitespace = 1
 " Enable NERDCommenterToggle to check all selected lines is commented or not
 let g:NERDToggleCheckAllLines = 1
+:map <c-c> <Plug>NERDCommenterToggle
 
 " File tree with NERDTree
 Plug 'preservim/nerdtree'
