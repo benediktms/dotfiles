@@ -36,8 +36,8 @@ set nowrap
 let mapleader = " "
 
 " setting up better buffer navigation
-nnoremap <leader>bb :bp<CR>
-nnoremap <leader>bn :bn<CR>
+nnoremap <a-k> :bp<CR>
+nnoremap <a-j> :bn<CR>
 
 " creating splits (mirrors tmux config for max muscle memory goodness)
 nnoremap <leader>- <C-w>s
@@ -133,6 +133,9 @@ nnoremap <leader>ft :NERDTreeToggle<CR>
 		\ "Unknown"   : "?"
 		\ }
 let NERDTreeShowHidden=1
+
+" easy motion is cool but a tthe oment it's causing errors with linting
+Plug 'easymotion/vim-easymotion'
 
 " IDE like intellisense with Coc -----------------
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
