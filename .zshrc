@@ -12,6 +12,7 @@ ZSH_THEME="agnoster"
 
 DEFAULT_USER=$USER
 BROWSER="/usr/bin/firefox"
+export EDITOR=nvim
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -71,7 +72,7 @@ BROWSER="/usr/bin/firefox"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(tmux colored-man-pages git vi-mode zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -114,6 +115,8 @@ eval "$(rbenv init -)"
 # export FZF_DEFAULT_COMMAND='find .'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='find .'
+
+# alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
 
 # setting up xrandr to automatically split window with i3 this will have to 
 # be adjusted depending on the machine that is running. To see which port your 
