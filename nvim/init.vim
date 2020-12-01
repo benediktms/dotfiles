@@ -14,6 +14,10 @@ syntax on
 " set cursor line
 set cursorline
 
+" set auto read to refresh open files when they change on the disk
+set autoread
+au CursorHold * checktime
+
 " This might cause some isses if it isn't set (apparently)
 set hidden
 
@@ -36,9 +40,8 @@ set nowrap
 let mapleader = " "
 
 " setting up better buffer navigation
-nnoremap <a-k> :bp<CR>
-nnoremap <a-j> :bn<CR>
-nnoremap <S-c-w> :q<CR>
+nnoremap <a-j> :bp<CR>
+nnoremap <a-k> :bn<CR>
 nnoremap <c-s> :w<CR>
 
 " buffer resizing
