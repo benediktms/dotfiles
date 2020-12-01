@@ -41,6 +41,12 @@ nnoremap <a-j> :bn<CR>
 nnoremap <S-c-w> :q<CR>
 nnoremap <c-s> :w<CR>
 
+" buffer resizing
+function! ResizeSection()
+  exec "vertical resize ".(&columns / 3). " N"
+endfunction
+nnoremap <leader>r :call ResizeSection()<CR>
+
 " creating splits (mirrors tmux config for max muscle memory goodness)
 nnoremap <leader>- <C-w>s
 nnoremap <leader>_ <C-w>v
@@ -57,6 +63,9 @@ nnoremap <leader>l <C-w>l
 
 " shortcut to open a vertical split and edit the vimrc/nvim config
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+
+" warp commit messages at 72 characters
+au FileType gitcommit setlocal tw=72
 
 " Let Coc handle LSP and ALE diagnostics
 let ale_disable_lsp = 1
@@ -121,9 +130,12 @@ map <c-c> <Plug>NERDCommenterToggle
 " File tree with NERDTree
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+
 " Open NERDTree
 nnoremap <leader>ft :NERDTreeToggle<CR>
-" let g:NERDTreeGitStatusIndicatorMapCustom = {
+nnoremap <leader>st :NERDTreeFind<CR>
+
+let g:NERDTreeGitStatusIndicatorMapCustom = {
 		\ "Modified"  : "✹",
 		\ "Staged"    : "✚",
 		\ "Untracked" : "✭",
