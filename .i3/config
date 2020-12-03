@@ -56,6 +56,7 @@ bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
+bindsym $mod+F1 exec code
 # bindsym $mod+F2 exec palemoon
 bindsym $mod+F2 exec firefox
 bindsym $mod+F3 exec pcmanfm
@@ -146,6 +147,9 @@ bindsym $mod+minus scratchpad show
 #navigate workspaces next / previous
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
+
+bindsym $mod+Ctrl+k workspace next
+bindsym $mod+Ctrl+j workspace prev
 
 # Workspace names
 # to display names or symbols instead of plain workspace numbers you can use
