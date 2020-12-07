@@ -194,6 +194,12 @@ function! s:show_documentation()
   endif
 endfunction
 
+
+" Remap keys for applying codeAction to the current buffer.
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+
 " " Add (Neo)Vim's native statusline support.
 " " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " " provide custom statusline: lightline.vim, vim-airline.
