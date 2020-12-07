@@ -34,6 +34,9 @@ set notimeout ttimeout ttimeoutlen=50
 " turn off word wrap cos its DISGUSTING
 set nowrap
 
+" enable special characters
+set encoding=UTF-8
+
 " Generic shortcuts ------------------------------
 
 " setting leader key and shortcuts
@@ -130,33 +133,14 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:NERDToggleCheckAllLines = 1
 map <c-c> <Plug>NERDCommenterToggle
 
-" File tree with NERDTree
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-
-" Open NERDTree
-nnoremap <leader>ft :NERDTreeToggle<CR>
-nnoremap <leader>st :NERDTreeFind<CR>
-
-let g:NERDTreeGitStatusIndicatorMapCustom = {
-		\ "Modified"  : "✹",
-		\ "Staged"    : "✚",
-		\ "Untracked" : "✭",
-		\ "Renamed"   : "➜",
-		\ "Unmerged"  : "═",
-		\ "Deleted"   : "",
-		\ "Dirty"     : "✗",
-		\ "Clean"     : "✔︎",
-		\ 'Ignored'   : '☒',
-		\ "Unknown"   : "?"
-		\ }
-let NERDTreeShowHidden=1
-
 " easy motion is cool but a tthe oment it's causing errors with linting
 Plug 'easymotion/vim-easymotion'
 
 " IDE like intellisense with Coc -----------------
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Use coc-explorer
+nmap <leader>ft  :CocCommand explorer<CR>
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -173,11 +157,13 @@ function! s:check_back_space() abort
 endfunction
 
 " Use <c-space> to trigger completion.
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
+" if has('nvim')
+"   inoremap <silent><expr> <c-space> coc#refresh()
+" else
+"   inoremap <silent><expr> <c-@> coc#refresh()
+" endif
+" press alt-space to trigger completion to play nice with TMUX
+inoremap <silent><expr> <a-space> coc#refresh()
 
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin"
@@ -288,6 +274,9 @@ Plug 'pantharshit00/vim-prisma'
 " Plug 'neovim/nvim-lspconfig'
 " Plug 'nvim-lua/completion-nvim'
 " Plug 'nvim-lua/diagnostic-nvim'
+
+" Nerd font devicons
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 " -----------------------------------------------
