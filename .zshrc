@@ -8,11 +8,7 @@ export ZSH="/home/benedikt/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
-
-DEFAULT_USER=$USER
-BROWSER="/usr/bin/firefox"
-export EDITOR=nvim
+# ZSH_THEME="agnoster"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -46,7 +42,7 @@ export EDITOR=nvim
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -85,10 +81,14 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
+#   export EDITOR='nvim'
 # else
-#   export EDITOR='mvim'
+#   export EDITOR='vim'
 # fi
+
+DEFAULT_USER=$USER
+export BROWSER="/usr/bin/firefox"
+export EDITOR=nvim
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -102,6 +102,14 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# cleanup orphan packages
+alias update='sudo pacman -Syu'
+alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
+
+# lazy display setup for laptop
+alias xhdmi1='xrandr --output HDMI1 --auto --right-of eDP1'
+alias xdp1='xrandr --output DP1 --auto --right-of eDP1'
+
 # Actually load Oh-My-Zsh
 source "${ZSH}/oh-my-zsh.sh"
 
@@ -111,15 +119,10 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 
 eval "$(rbenv init -)"
 
+# source FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# export FZF_DEFAULT_COMMAND='find .'
+# search with ripgrep and show hidden files
 export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
 
-# alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
-
-# setting up xrandr to automatically split window with i3 this will have to 
-# be adjusted depending on the machine that is running. To see which port your 
-# display is connected to simply run xrandr
-# xrandr --output HDMI1 --auto --right-of eDP1
-
+# initialize starship prompt
 eval "$(starship init zsh)"
