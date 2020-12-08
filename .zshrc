@@ -112,7 +112,8 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 eval "$(rbenv init -)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='find .'
+# export FZF_DEFAULT_COMMAND='find .'
+export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
 
 # alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
 
