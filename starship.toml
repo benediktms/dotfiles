@@ -1,12 +1,5 @@
-add_newline = false
-
-[character]
-success_symbol = "[ﬦ](bold green)"
-error_symbol = "[ﬦ](bold red)"
-vicmd_symbol = "[](bold blue)"
-
 [aws]
-symbol = "摒 "
+symbol = "AWS "
 
 [battery]
 full_symbol = ""
@@ -14,71 +7,69 @@ charging_symbol = ""
 discharging_symbol = ""
 
 [conda]
-symbol = " "
+symbol = "Conda "
 
 [dart]
-symbol = " "
+symbol = "Dart "
 
 [directory]
 read_only = " "
 
 [docker]
-symbol = " "
+symbol = "Docker "
 
 [elixir]
-symbol = " "
+symbol = "Elixir "
 
 [elm]
-symbol = " "
+symbol = "Elm "
 
 [git_branch]
-symbol = " "
 
 [golang]
-symbol = " "
+symbol = "Go "
 
 [haskell]
-symbol = " "
+symbol = "Haskell "
 
 [hg_branch]
-symbol = " "
 
 [java]
-symbol = " "
+symbol = "Java "
 
 [julia]
-symbol = " "
+symbol = "Julia "
 
 [memory_usage]
 symbol = " "
 
 [nim]
-symbol = " "
+symbol = "Nim "
 
 [nix_shell]
-symbol = " "
+symbol = "Nix shell "
 
 [nodejs]
-symbol = " "
+symbol = "Node "
 
 [package]
-symbol = " "
+disabled = true
 
 [perl]
-symbol = " "
+symbol = "Perl "
 
 [php]
-symbol = " "
+symbol = "PHP "
 
 [python]
-symbol = " "
+symbol = "Python "
 
 [ruby]
-symbol = " "
+symbol = "Ruby "
 
 [rust]
-symbol = " "
+symbol = "Rust "
 
 [swift]
-symbol = "ﯣ "
+symbol = "Swift "
 
