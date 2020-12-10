@@ -86,6 +86,9 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='vim'
 # fi
 
+# Load LS_COLORS
+. "/usr/share/LS_COLORS/dircolors.sh"
+
 DEFAULT_USER=$USER
 export BROWSER="/usr/bin/firefox"
 export EDITOR=nvim
@@ -103,12 +106,12 @@ export EDITOR=nvim
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # cleanup orphan packages
-alias update='sudo pacman -Syu'
+alias update='yay -Syu'
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
 
 # lazy display setup for laptop
-alias xhdmi1='xrandr --output HDMI1 --auto --right-of eDP1'
-alias xdp1='xrandr --output DP1 --auto --right-of eDP1'
+alias xhdmi1='xrandr --output HDMI1 --auto --left-of eDP1 --rate 74'
+alias xdp1='xrandr --output DP1 --auto --left-of eDP1'
 
 # Actually load Oh-My-Zsh
 source "${ZSH}/oh-my-zsh.sh"
