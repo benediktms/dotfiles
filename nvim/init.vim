@@ -135,8 +135,12 @@ map <c-c> <Plug>NERDCommenterToggle
 " easy motion is cool but a tthe oment it's causing errors with linting
 Plug 'easymotion/vim-easymotion'
 
+" git wrapper with FuGitIve
+Plug 'tpope/vim-fugitive'
+
 " IDE like intellisense with Coc -----------------
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+nnoremap <leader>gst :Git status<CR>
 
 " Use coc-explorer
 nmap <leader>ft  :CocCommand explorer<CR>
