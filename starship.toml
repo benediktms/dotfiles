@@ -2,7 +2,7 @@
 # disabled = true
 
 # Disable the newline at the start of the prompt
-add_newline = false
+add_newline = true
 
 [aws]
 symbol = "AWS "

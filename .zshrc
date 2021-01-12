@@ -110,8 +110,8 @@ alias update='yay -Syu'
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
 
 # lazy display setup for laptop
-alias xhdmi1='xrandr --output HDMI1 --auto --left-of eDP1 --rate 74'
-alias xdp1='xrandr --output DP1 --auto --left-of eDP1'
+alias xhdmi1='xrandr --output HDMI1 --auto --right-of eDP1 --rate 74'
+alias xdp1='xrandr --output DP1 --auto --right-of eDP1'
 
 # Actually load Oh-My-Zsh
 source "${ZSH}/oh-my-zsh.sh"
