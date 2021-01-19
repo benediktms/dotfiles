@@ -68,7 +68,7 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(tmux colored-man-pages git vi-mode zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(archlinux tmux colored-man-pages git vi-mode zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -90,7 +90,7 @@ source $ZSH/oh-my-zsh.sh
 . "/usr/share/LS_COLORS/dircolors.sh"
 
 DEFAULT_USER=$USER
-export BROWSER="/usr/bin/firefox"
+export BROWSER="/usr/bin/brave"
 export EDITOR=nvim
 
 # Compilation flags
@@ -105,11 +105,7 @@ export EDITOR=nvim
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# cleanup orphan packages
-alias update='yay -Syu'
-alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
-
-# lazy display setup for laptop
+# cleanup orpha# lazy display setup for laptop
 alias xhdmi1='xrandr --output HDMI1 --auto --right-of eDP1 --rate 74'
 alias xdp1='xrandr --output DP1 --auto --right-of eDP1'
 
