@@ -28,7 +28,7 @@ set expandtab
 set smartindent
 
 " setting update time to be shorter
-set updatetime=200
+set updatetime=100
 set notimeout ttimeout ttimeoutlen=50
 
 " turn off word wrap cos its DISGUSTING
@@ -92,6 +92,10 @@ Plug 'AndrewRadev/tagalong.vim'
 
 " highlight yanked area
 Plug 'machakann/vim-highlightedyank'
+
+" minimap for code shape
+" require code-minimap to be installed (available on AUR)
+Plug 'wfxr/minimap.vim'
 
 " End wise for ruby
 " Plug 'tpope/vim-endwise'
@@ -259,6 +263,8 @@ let g:gitgutter_sign_modified = ''
 let g:gitgutter_sign_removed = ''
 let g:gitgutter_sign_removed_first_line = ''
 let g:gitgutter_sign_modified_removed = ''
+
+" Plug 'mhinz/vim-signify'
 
 " fzf search
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
