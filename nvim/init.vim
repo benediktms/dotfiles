@@ -201,12 +201,22 @@ function! s:show_documentation()
   endif
 endfunction
 
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Add ':Prettier' command to format current file
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+nnoremap <leader>p :Prettier <CR>
 
 " Remap keys for applying codeAction to the current buffer.
 nmap <leader>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
 
+" Remap <C-f> and <C-b> for scroll float windows/popups.
 nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
 nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
@@ -234,8 +244,8 @@ let b:ale_fixers = {
 let g:ale_linters_explicit = 1
 let g:ale_fix_on_save = 1
 
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-nnoremap <leader>pp :PrettierAsync<CR>
+" Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+" nnoremap <leader>pp :PrettierAsync<CR>
 packloadall
 
 " Color scheme
