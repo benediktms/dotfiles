@@ -3,6 +3,9 @@
 " Switch on syntax
 syntax on
 
+" enable embedded Lua syntax highlighting
+let g:vimsyn_embed= 'lPr'
+
 " set hybrid line numbers relative for normal/visual absolute for insert
 :set number relativenumber
 :augroup numbertoggle
