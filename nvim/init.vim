@@ -97,8 +97,14 @@ Plug 'AndrewRadev/tagalong.vim'
 Plug 'machakann/vim-highlightedyank'
 
 " minimap for code shape
-" require code-minimap to be installed (available on AUR)
+" requires code-minimap to be installed (available on AUR)
 Plug 'wfxr/minimap.vim'
+
+" indent guides
+Plug 'Yggdroot/indentLine'
+Plug 'lukas-reineke/indent-blankline.nvim'
+let g:indent_blankline_char = '¦'
+let g:indent_blankline_extra_indent_level = -2
 
 " End wise for ruby
 " Plug 'tpope/vim-endwise'
@@ -150,7 +156,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 nnoremap <leader>gst :Git status<CR>
 
 " Use coc-explorer
-nmap <leader>ft  :CocCommand explorer<CR>
+nnoremap <leader>ft :CocCommand explorer<CR>
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
