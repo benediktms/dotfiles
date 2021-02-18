@@ -1,5 +1,6 @@
 " This is the Vim configuration file of Benedikt Schnatterbeck
 
+if !exists('g:vscode')
 " Switch on syntax
 syntax on
 
@@ -392,4 +393,12 @@ EOF
 " let g:diagnostic_virtual_text_prefix = ''
 " nnoremap <silent>[g :PrevDiagnosticCycle<CR>
 " nnoremap <silent>]g :NextDiagnosticCycle<CR>
+else
+  let mapleader = " "
+
+  call plug#begin()
+  Plug 'machakann/vim-highlightedyank'
+  Plug 'tpope/vim-surround'
+  call plug#end()
+endif
 
