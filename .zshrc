@@ -42,7 +42,7 @@ export ZSH="/home/benedikt/.oh-my-zsh"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -68,7 +68,7 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(archlinux tmux colored-man-pages git vi-mode zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(colored-man-pages git vi-mode zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -90,7 +90,7 @@ source $ZSH/oh-my-zsh.sh
 . "/usr/share/LS_COLORS/dircolors.sh"
 
 DEFAULT_USER=$USER
-export BROWSER="/usr/bin/brave"
+export BROWSER="/usr/bin/firefox-nightly"
 export EDITOR=nvim
 
 # Compilation flags
@@ -105,9 +105,13 @@ export EDITOR=nvim
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# cleanup orpha# lazy display setup for laptop
-alias xhdmi1='xrandr --output HDMI1 --auto --right-of eDP1 --rate 74'
-alias xdp1='xrandr --output DP1 --auto --right-of eDP1'
+# cleanup orphan packages
+alias update='yay -Syu'
+alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
+
+# lazy display setup for laptop
+alias xhdmi1='xrandr --output HDMI1 --auto --left-of eDP1 --rate 74'
+alias xdp1='xrandr --output DP1 --auto --left-of eDP1'
 
 # Actually load Oh-My-Zsh
 source "${ZSH}/oh-my-zsh.sh"
@@ -125,3 +129,4 @@ export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
 
 # initialize starship prompt
 eval "$(starship init zsh)"
+[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn

@@ -1,6 +1,8 @@
 " This is the Vim configuration file of Benedikt Schnatterbeck
 
+" check if the vscode isntance is running
 if !exists('g:vscode')
+
 " Switch on syntax
 syntax on
 
@@ -393,8 +395,13 @@ EOF
 " let g:diagnostic_virtual_text_prefix = ''
 " nnoremap <silent>[g :PrevDiagnosticCycle<CR>
 " nnoremap <silent>]g :NextDiagnosticCycle<CR>
+
+" this is the end of the vscode wrapper
 else
   let mapleader = " "
+
+  " copy and paste from system clipboard
+  set clipboard+=unnamedplus
 
   call plug#begin()
   Plug 'machakann/vim-highlightedyank'
