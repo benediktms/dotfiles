@@ -19,7 +19,7 @@ let g:vimdir = "~/.dotfiles/nvim"
 " Load keymaps
 exec 'source' g:vimdir . "/mappings.vim"
 
-" Source plugins
+" Source plugins & configs
 exec 'source' g:vimdir . "/plug.vim"
 
 " Load misc configurations

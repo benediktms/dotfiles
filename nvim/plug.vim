@@ -1,6 +1,6 @@
 " Plugins ----------------------------------------
 
-call plug#begin('~/.local/share/plugged')
+call plug#begin()
 
 let g:installing_plugins = 1
 
@@ -14,11 +14,9 @@ packloadall
 
 call plug#end()
 
-let g:gruvbox_invert_selection='0'
-let g:gruvbox_italic = 1
-let g:gruvebox_contrast_dark = 0
-colorscheme gruvbox
-
-" Let Coc handle LSP and ALE diagnostics
-let ale_disable_lsp = 1
+" load plugin specific settings that have to be configured after the plugin
+" has been loaded (after plug#end).
+for file in split(glob(g:vimdir . '/plugin_configs/*.vim'), '\n')
+  exe 'source' fnameescape(file)
+endfor
 
