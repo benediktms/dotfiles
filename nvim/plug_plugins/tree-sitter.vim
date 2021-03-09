@@ -1,7 +1,7 @@
 if exists('g:installing_plugins')
 
   " Tree sitter
-  Plug 'nvim-treesitter/nvim-treesitter'
+  Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 
   finish
 endif

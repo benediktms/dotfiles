@@ -30,3 +30,6 @@ nnoremap <leader>l <C-w>l
 
 " shortcut to open a vertical split and edit the vimrc/nvim config
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+
+" source configs
+nnoremap <leader>sv :source $MYVIMRC<CR>

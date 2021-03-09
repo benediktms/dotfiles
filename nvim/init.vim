@@ -12,16 +12,17 @@ if exists('g:vscode')
   Plug 'machakann/vim-highlightedyank'
   Plug 'tpope/vim-surround'
   call plug#end()
+else
+
+  let g:vimdir = "~/.dotfiles/nvim"
+
+  " Load keymaps
+  exec 'source' g:vimdir . "/mappings.vim"
+
+  " Source plugins & configs
+  exec 'source' g:vimdir . "/plug.vim"
+
+  " Load misc configurations
+  exec 'source' g:vimdir . "/base.vim"
+
 endif
-
-let g:vimdir = "~/.dotfiles/nvim"
-
-" Load keymaps
-exec 'source' g:vimdir . "/mappings.vim"
-
-" Source plugins & configs
-exec 'source' g:vimdir . "/plug.vim"
-
-" Load misc configurations
-exec 'source' g:vimdir . "/base.vim"
-

@@ -1,4 +1,5 @@
 {
 "explorer.icon.enableNerdfont": true,
-"explorer.position": "right"
+"explorer.position": "right",
+"explorer.width": 60
 }
