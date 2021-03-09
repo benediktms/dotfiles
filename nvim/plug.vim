@@ -10,9 +10,9 @@ endfor
 
 unlet g:installing_plugins
 
-packloadall
-
 call plug#end()
+
+packloadall
 
 " load plugin specific settings that have to be configured after the plugin
 " has been loaded (after plug#end).
