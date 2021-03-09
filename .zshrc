@@ -87,7 +87,8 @@ source $ZSH/oh-my-zsh.sh
 # fi
 
 # Load LS_COLORS
-. "/usr/share/LS_COLORS/dircolors.sh"
+# . "/usr/share/LS_COLORS/dircolors.sh"
+test -r ~/.dir_colors && eval $(dircolors ~/.dir_colors)
 
 DEFAULT_USER=$USER
 export BROWSER="/usr/bin/firefox-nightly"
