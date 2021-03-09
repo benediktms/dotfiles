@@ -88,3 +88,6 @@ symbol = "Rust "
 [swift]
 symbol = "Swift "
 
+[lua]
+symbol = "Lua "
+
