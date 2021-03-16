@@ -339,6 +339,25 @@ set_from_resource $term_color13    color13
 set_from_resource $term_color14    color14
 set_from_resource $term_color15    color15
 
+# Nord theme colors
+
+set $nord0   #2E3440
+set $nord1   #3B4252
+set $nord2   #434C5E
+set $nord3   #4C566A
+set $nord4   #D8DEE9
+set $nord5   #E5E9F0
+set $nord6   #ECEFF4
+set $nord7   #8FBCBB
+set $nord8   #88C0D0
+set $nord9   #81A1C1
+set $nord10  #5E81AC
+set $nord11  #BF616A
+set $nord12  #D08770
+set $nord13  #EBCB8B
+set $nord14  #A3BE8C
+set $nord15  #B48EAD
+
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
 	i3bar_command i3bar
@@ -361,12 +380,19 @@ bar {
         separator  #454947
 
 #                      border  backgr. text
-        focused_workspace  #F9FAF9 #16a085 #292F34
-        active_workspace   #595B5B #353836 #FDF6E3
-        inactive_workspace #595B5B #222D31 #EEE8D5
-        binding_mode       #16a085 #2C2C2C #F9FAF9
-        urgent_workspace   #16a085 #FDF6E3 #E5201D
+        # focused_workspace  #eceff4 #88c0d0 #2e3440
+        # active_workspace   #d8dee9 #2e3440 #d8dee9
+        # inactive_workspace #d8dee9 #5e81ac #e5e9f0
+        # binding_mode       #d8dee9 #2C2C2C #e5e9f0
+        # urgent_workspace   #d8dee9 #e5e9f0 #bf616a
+
+
+        focused_workspace  $nord3  $nord8
+        active_workspace   $nord3  $nord9
+        inactive_workspace $nord8  $nord3
+        urgent_workspace   $nord3 $nord15 
     }
+  tray_output primary
 }
 
 # hide/unhide i3status bar

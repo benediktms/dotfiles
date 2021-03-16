@@ -4,6 +4,8 @@
 " this is used in both VSCode and NeoVim
 set clipboard+=unnamedplus
 
+let g:vimdir = "~/.dotfiles/nvim"
+
 " check if the vscode instance is running
 if exists('g:vscode')
   let mapleader = " "
@@ -12,9 +14,8 @@ if exists('g:vscode')
   Plug 'machakann/vim-highlightedyank'
   Plug 'tpope/vim-surround'
   call plug#end()
-else
 
-  let g:vimdir = "~/.dotfiles/nvim"
+else
 
   " Load keymaps
   exec 'source' g:vimdir . "/mappings.vim"
