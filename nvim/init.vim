@@ -3,6 +3,7 @@
 " copy and paste from system clipboard
 " this is used in both VSCode and NeoVim
 set clipboard+=unnamedplus
+set mouse=a
 
 let g:vimdir = "~/.dotfiles/nvim"
 
