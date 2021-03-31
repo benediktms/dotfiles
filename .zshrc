@@ -91,7 +91,7 @@ source $ZSH/oh-my-zsh.sh
 test -r ~/.dir_colors && eval $(dircolors ~/.dir_colors)
 
 DEFAULT_USER=$USER
-export BROWSER="/usr/bin/firefox-nightly"
+export BROWSER="/usr/bin/firefox"
 export EDITOR=nvim
 
 # Compilation flags
@@ -113,6 +113,8 @@ alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
 # lazy display setup for laptop
 alias xhdmi1='xrandr --output HDMI1 --auto --left-of eDP1 --rate 74'
 alias xdp1='xrandr --output DP1 --auto --left-of eDP1'
+
+alias dimscreen='redshift -l 51.50853:-0.12574'
 
 # Actually load Oh-My-Zsh
 source "${ZSH}/oh-my-zsh.sh"
