@@ -12,8 +12,8 @@ if exists('g:vscode')
   let mapleader = " "
 
   call plug#begin()
-  Plug 'machakann/vim-highlightedyank'
-  Plug 'tpope/vim-surround'
+    Plug 'machakann/vim-highlightedyank'
+    Plug 'tpope/vim-surround'
   call plug#end()
 
 else

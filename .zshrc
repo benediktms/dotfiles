@@ -88,7 +88,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Load LS_COLORS
 # . "/usr/share/LS_COLORS/dircolors.sh"
-test -r ~/.dir_colors && eval $(dircolors ~/.dir_colors)
+# test -r ~/.dir_colors && eval $(dircolors ~/.dir_colors)
 
 DEFAULT_USER=$USER
 export BROWSER="/usr/bin/firefox"
@@ -126,10 +126,11 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 eval "$(rbenv init -)"
 
 # source FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # search with ripgrep and show hidden files
-export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
+# export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
 
 # initialize starship prompt
 eval "$(starship init zsh)"
-[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
+
+# [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
