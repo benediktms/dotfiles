@@ -34,7 +34,7 @@ symbol = "Elixir "
 symbol = "Elm "
 
 [git_branch]
-truncation_length = 10
+truncation_length = 18
 
 [git_status]
 ahead = "⇡${count}"
