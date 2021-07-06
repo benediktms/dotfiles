@@ -117,7 +117,9 @@ alias xdp1='xrandr --output DP1 --auto --left-of eDP1'
 alias dimscreen='redshift -l 51.50853:-0.12574'
 alias oni2='~/onivim2/Onivim2-x86_64-master.AppImage'
 
-alias lg='lazygit'
+alias lzg='lazygit'
+alias lzd='lazydocker'
+alias lzn='lazynpm'
 
 # Actually load Oh-My-Zsh
 source "${ZSH}/oh-my-zsh.sh"
