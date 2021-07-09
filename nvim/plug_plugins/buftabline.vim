@@ -1,6 +1,6 @@
-if exists('g:installing_plugins')
+" if exists('g:installing_plugins')
 
-  Plug 'ap/vim-buftabline'
+"   Plug 'ap/vim-buftabline'
 
-  finish
-endif
+"   finish
+" endif

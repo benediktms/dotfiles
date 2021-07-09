@@ -27,8 +27,8 @@ if exists('g:installing_plugins')
   " else
   "   inoremap <silent><expr> <c-@> coc#refresh()
   " endif
-  " press alt-space to trigger completion to play nice with TMUX
-  inoremap <silent><expr> <a-space> coc#refresh()
+  " press alt-i to trigger completion to play nice with TMUX and the DE
+  inoremap <silent><expr> <a-i> coc#refresh()
 
   " Make <CR> auto-select the first completion item and notify coc.nvim to
   " format on enter, <cr> could be remapped by other vim plugin"

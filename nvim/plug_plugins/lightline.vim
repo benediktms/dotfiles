@@ -1,7 +1,7 @@
-if exists('g:installing_plugins')
+" if exists('g:installing_plugins')
 
-  Plug 'itchyny/lightline.vim'
+  " Plug 'itchyny/lightline.vim'
 
-  finish
-endif
+"   finish
+" endif
 

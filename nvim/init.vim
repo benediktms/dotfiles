@@ -15,9 +15,7 @@ if exists('g:vscode')
     Plug 'machakann/vim-highlightedyank'
     Plug 'tpope/vim-surround'
   call plug#end()
-
 else
-
   " Load keymaps
   exec 'source' g:vimdir . "/mappings.vim"
 
@@ -26,5 +24,4 @@ else
 
   " Load misc configurations
   exec 'source' g:vimdir . "/base.vim"
-
 endif
