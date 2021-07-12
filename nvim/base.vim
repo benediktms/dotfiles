@@ -41,9 +41,3 @@ set encoding=UTF-8
 " warp commit messages at 72 characters
 au FileType gitcommit setlocal tw=72
 
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum]"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum]"
-endif
-
-set autoread
