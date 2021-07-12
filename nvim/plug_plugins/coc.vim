@@ -66,7 +66,7 @@ if exists('g:installing_plugins')
   nmap <leader>rn <Plug>(coc-rename)
 
   " Add ':Prettier' command to format current file
-  command! -nargs=0 Prettier :CocCommand prettier.formatFile
+  command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
   nnoremap <leader>p :Prettier <CR>
 
   " Remap keys for applying codeAction to the current buffer.

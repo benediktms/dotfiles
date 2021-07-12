@@ -8,7 +8,7 @@ if exists('g:installing_plugins')
         \'typescript': ['prettier', 'eslint'],
         \'typescriptreact': ['prettier', 'eslint'],
         \'css': ['prettier'],
-        \'ruby': ['prettier']
+        \'prisma': ['prettier'],
         \}
   let g:ale_linters_explicit = 1
   let g:ale_fix_on_save = 1

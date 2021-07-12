@@ -107,12 +107,8 @@ export EDITOR=nvim
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # cleanup orphan packages
-alias update='yay -Syu'
+alias update='yay -Syyu'
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
-
-# lazy display setup for laptop
-alias xhdmi1='xrandr --output HDMI1 --auto --left-of eDP1 --rate 74'
-alias xdp1='xrandr --output DP1 --auto --left-of eDP1'
 
 alias oni2='~/code/oni2/_release/Onivim2-x86_64.AppImage'
 
