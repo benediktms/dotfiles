@@ -5,7 +5,6 @@
 set clipboard+=unnamedplus
 set mouse=a
 
-let g:vimdir = "~/.dotfiles/nvim"
 
 " check if the vscode instance is running
 if exists('g:vscode')
@@ -16,6 +15,9 @@ if exists('g:vscode')
     Plug 'tpope/vim-surround'
   call plug#end()
 else
+
+  let g:vimdir = "~/.dotfiles/nvim.old"
+
   " Load keymaps
   exec 'source' g:vimdir . "/mappings.vim"
 

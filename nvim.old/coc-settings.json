@@ -1,0 +1,48 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "javascrip",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact",
+    "json",
+    "graphql",
+    "prisma"
+  ],
+  "explorer.position": "right",
+  "explorer.file.showHiddenFiles": true,
+  "explorer.file.column.indent.indentLine": true,
+  "explorer.sources": [
+    {
+      "name": "buffer",
+      "expand": false
+    },
+    {
+      "name": "file",
+      "expand": true
+    }
+  ],
+  "explorer.keyMappings.global": {
+    "<space>": "toggleSelection"
+  },
+  "explorer.presets": {
+    "floating": {
+      "position": "floating",
+      "open-action-strategy": "sourceWindow"
+    }
+  },
+  "explorer.icon.enableNerdfont": true,
+  "explorer.buffer.tabOnly": true,
+  "explorer.file.reveal.whenOpen": true,
+  "explorer.file.reveal.filter": {
+    "literals": ["node_modules"]
+  },
+  "explorer.mouseMode": "singleclick",
+  "explorer.debug": true,
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "diagnostic.virtualText": true,
+  "eslint.packageManager": "yarn",
+  "eslint.run": "onType",
+  "coc.preferences.rootPatterns": [".env"]
+}

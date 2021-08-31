@@ -41,3 +41,5 @@ set encoding=UTF-8
 " warp commit messages at 72 characters
 au FileType gitcommit setlocal tw=72
 
+set foldmethod=indent
+set foldlevel=20

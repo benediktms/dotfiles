@@ -110,7 +110,8 @@ export EDITOR=nvim
 alias update='yay -Syyu'
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
 
-alias oni2='~/code/oni2/_release/Onivim2-x86_64.AppImage'
+alias oni2='~/code/oss/oni2/_release/Onivim2-x86_64.AppImage'
+# alias oni2='~/onivim2/Onivim2-x86_64.AppImage'
 
 alias lzg='lazygit'
 alias lzd='lazydocker'
