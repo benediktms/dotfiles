@@ -116,6 +116,7 @@ alias oni2='~/code/oss/oni2/_release/Onivim2-x86_64.AppImage'
 alias lzg='lazygit'
 alias lzd='lazydocker'
 alias lzn='lazynpm'
+alias gsm='git switch master'
 
 # Actually load Oh-My-Zsh
 source "${ZSH}/oh-my-zsh.sh"
