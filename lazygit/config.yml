@@ -1,0 +1,31 @@
+customCommands: 
+  - key: <c-g>
+    context: 'global'
+    description: 'Create a pull request using the GitHub CLI'
+    subprocess: true
+    command: gh pr create -t {{index .PromptResponses 0}} -b {{index .PromptResponses 1}} -a {{index .PromptResponses 2}} -r {{index .PromptResponses 3}} {{ if eq (index .PromptResponses 4) "yes"}}{{ "--draft" }}{{ end }}
+    prompts: 
+      - type: 'input'
+        title: 'Title'
+        initialValue: "{{index .CheckedOutBranch.Name}}"
+      
+      - type: 'input'
+        title: 'Body'
+
+      - type: 'menuFromCommand'
+        title: 'Assignees'
+        command: bash /home/benedikt2/.config/lazygit/github_contributors.sh {{index .SelectedRemote.Urls 0}}
+        filter: '(?P<user>.*)'
+        valueFormat: '{{ .user }}'
+
+      - type: 'menuFromCommand'
+        title: 'Reviewers'
+        command: bash /home/benedikt2/.config/lazygit/github_contributors.sh {{index .SelectedRemote.Urls 0}}
+        filter: '(?P<user>.*)'
+        valueFormat: '{{ .user }}'
+
+      - type: 'menu'
+        title: 'Mark pull request as draft?'
+        options: 
+          - value: 'yes'
+          - value: 'no'
