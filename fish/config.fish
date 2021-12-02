@@ -4,5 +4,7 @@ if status is-interactive
 
     abbr -a -g lzg lazygit
 
+    set -gx EDITOR nvim
+
     zoxide init fish | source
 end
