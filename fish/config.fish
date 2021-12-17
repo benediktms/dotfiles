@@ -4,6 +4,8 @@ if status is-interactive
 
     abbr -a -g lzg lazygit
     abbr -a -g lzd lazydocker
+    abbr -a -g gst git status
+    abbr -a -g gc git commit
 
     set -gx EDITOR nvim
 
