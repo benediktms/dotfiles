@@ -110,29 +110,15 @@ export EDITOR=nvim
 alias update='yay -Syyu'
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
 
-alias oni2='~/code/oss/oni2/_release/Onivim2-x86_64.AppImage'
-# alias oni2='~/onivim2/Onivim2-x86_64.AppImage'
-
 alias lzg='lazygit'
 alias lzd='lazydocker'
-alias lzn='lazynpm'
-alias gsm='git switch master'
 alias cd='z'
 
 # Actually load Oh-My-Zsh
 source "${ZSH}/oh-my-zsh.sh"
 
-# Node Version Manager
-# export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-source /usr/share/nvm/init-nvm.sh
-
-eval "$(rbenv init -)"
-
-# source FZF
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# search with ripgrep and show hidden files
-# export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
+# Load fnm
+eval "$(fnm env --use-on-cd)"
 
 # initialize starship prompt
 eval "$(starship init zsh)"
@@ -140,5 +126,4 @@ eval "$(starship init zsh)"
 # initialize zoxide
 eval "$(zoxide init zsh)"
 
-# [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
 export PATH=~/bin:$PATH
