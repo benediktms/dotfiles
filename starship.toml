@@ -1,93 +1,18 @@
+# Disable blank line at start of prompt
+add_newline = false
+
 # [line_break]
 # disabled = true
 
-# Disable the newline at the start of the prompt
-add_newline = true
+[character]
+vicmd_symbol = '[V](bold blue)'
 
-[aws]
-symbol = "AWS "
-disabled = true
-[aws.region_aliases]
-eu-west-2 = "euw2"
+[username]
+format = '\[[$user](bold green)'
+disabled = false
+show_always = true
 
-[battery]
-full_symbol = ""
-charging_symbol = ""
-discharging_symbol = ""
-
-[conda]
-symbol = "Conda "
-
-[dart]
-symbol = "Dart "
-
-[directory]
-read_only = " "
-
-[docker]
-symbol = "Docker "
-
-[elixir]
-symbol = "Elixir "
-
-[elm]
-symbol = "Elm "
-
-[git_branch]
-truncation_length = 18
-
-[git_status]
-ahead = "⇡${count}"
-diverged = "⇕⇡${ahead_count}⇣${behind_count}"
-behind = "⇣${count}"
-
-[golang]
-symbol = "Go "
-
-[haskell]
-symbol = "Haskell "
-
-[hg_branch]
-
-[java]
-symbol = "Java "
-
-[julia]
-symbol = "Julia "
-
-[memory_usage]
-symbol = " "
-
-[nim]
-symbol = "Nim "
-
-[nix_shell]
-symbol = "Nix shell "
-
-[nodejs]
-symbol = "Node "
-
-[package]
-disabled = true
-
-[perl]
-symbol = "Perl "
-
-[php]
-symbol = "PHP "
-
-[python]
-symbol = "Python "
-
-[ruby]
-symbol = "Ruby "
-
-[rust]
-symbol = "Rust "
-
-[swift]
-symbol = "Swift "
-
-[lua]
-symbol = "Lua "
-
+[hostname]
+format = '[@$hostname](bold green)\] '
+ssh_only = false
+disabled = false
