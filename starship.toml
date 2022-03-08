@@ -16,3 +16,6 @@ show_always = true
 format = '[@$hostname](bold green)\] '
 ssh_only = false
 disabled = false
+
+[git_branch]
+truncation_length = 20
