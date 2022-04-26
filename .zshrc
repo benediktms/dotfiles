@@ -93,6 +93,8 @@ source $ZSH/oh-my-zsh.sh
 DEFAULT_USER=$USER
 export BROWSER="/usr/bin/firefox"
 export EDITOR=nvim
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR"/ssh-agent.socket
+export SSH_ASKPASS=/usr/bin/ksshaskpass
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
