@@ -93,8 +93,6 @@ source $ZSH/oh-my-zsh.sh
 DEFAULT_USER=$USER
 export BROWSER="/usr/bin/firefox"
 export EDITOR=nvim
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR"/ssh-agent.socket
-export SSH_ASKPASS=/usr/bin/ksshaskpass
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -103,10 +101,6 @@ export SSH_ASKPASS=/usr/bin/ksshaskpass
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # cleanup orphan packages
 alias update='yay -Syyu'
@@ -115,6 +109,7 @@ alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
 alias lzg='lazygit'
 alias lzd='lazydocker'
 alias cd='z'
+alias logout='qdbus org.kde.ksmserver /KSMServer logout 1 3 3'
 
 # Actually load Oh-My-Zsh
 source "${ZSH}/oh-my-zsh.sh"
@@ -129,3 +124,31 @@ eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
 export PATH=~/bin:$PATH
+
+# enable color support of ls, less and man, and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    export LS_COLORS="$LS_COLORS:ow=30;44:" # fix ls color for folders with 777 permissions
+
+    # alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+    alias diff='diff --color=auto'
+    alias ip='ip --color=auto'
+
+    export LESS_TERMCAP_mb=$'\E[1;31m'     # begin blink
+    export LESS_TERMCAP_md=$'\E[1;36m'     # begin bold
+    export LESS_TERMCAP_me=$'\E[0m'        # reset bold/blink
+    export LESS_TERMCAP_so=$'\E[01;33m'    # begin reverse video
+    export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
+    export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
+    export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
+
+    # Take advantage of $LS_COLORS for completion as well
+    zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+    zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+fi
