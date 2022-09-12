@@ -7,9 +7,9 @@
 # always be loaded last.
 #import:
 #  - /path/to/alacritty.yml
-import:
-  - /home/benedikt/.dotfiles/alacritty/tokyo-night.yml
-  # - /home/benedikt/.dotfiles/alacritty/dracula.yml
+# import:
+#   - /home/benedikt/.dotfiles/alacritty/tokyo-night.yml
+# - /home/benedikt/.dotfiles/alacritty/dracula.yml
 
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
@@ -61,7 +61,7 @@ window:
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background and no title bar buttons
-  decorations: "None"
+  decorations: "full"
 
   # Startup Mode (changes require restart)
   #
@@ -111,7 +111,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: CaskaydiaCove Nerd Font
+    family: Cascadia Code PL
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -122,7 +122,7 @@ font:
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: CaskaydiaCove Nerd Font
+    family: Cascadia Code PL
 
     # The `style` can be specified to pick a specific face.
     style: Bold
@@ -144,7 +144,7 @@ font:
     #
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: CaskaydiaCove Nerd Font
+    family: Cascadia Code PL
 
     # The `style` can be specified to pick a specific face.
     style: Bold Italic
